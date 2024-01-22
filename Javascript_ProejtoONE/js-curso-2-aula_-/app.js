@@ -1,5 +1,8 @@
+let lista = [];
+let numerolimite = 10;
 let numero_secreto = gerarNumeroAleatorio();
 let tentativas = 1;
+
 
 function exibirTextoTela(tag,texto){
     let campo = document.querySelector(tag);
@@ -39,7 +42,19 @@ function verificarChute(){
     
 }
 function gerarNumeroAleatorio() {
-    return parseInt(Math.random() *10+1);
+    let numero_aletorio = parseInt(Math.random() *numerolimite +1);
+    let quantidadeElementoosLista = lista.length;
+
+    if(quantidadeElementoosLista==numerolimite){
+        lista=[];
+    }
+    if(lista.includes(numero_aletorio)){
+        return gerarNumeroAleatorio();
+    } else {
+          lista.push(numero_aletorio);
+          console.log(lista);
+          return numero_aletorio;
+    }
     
 }
 function limparCampo() {
@@ -55,3 +70,5 @@ function reiniciarJogo() {
    document.getElementById('reiniciar').setAttribute('disabled',true)
     
 }
+// Exercícios 
+
