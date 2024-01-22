@@ -6,8 +6,14 @@ function exibirTextoTela(tag,texto){
     campo.innerHTML = texto;
 
 }
-exibirTextoTela('h1','Jogo do Número Secreto');
-exibirTextoTela('p','Escolha um número entre 1 e 10');
+function exibirMensagemINICIAL() {
+    exibirTextoTela('h1','Jogo do Número Secreto');
+    exibirTextoTela('p','Escolha um número entre 1 e 10');
+
+    
+}
+exibirMensagemINICIAL();
+
 
 function verificarChute(){
     let chute = document.querySelector('input').value;
@@ -39,5 +45,13 @@ function gerarNumeroAleatorio() {
 function limparCampo() {
     chute=document.querySelector('input');
     chute.value='';
+    
+}
+function reiniciarJogo() {
+    numero_secreto=gerarNumeroAleatorio();
+    limparCampo();
+    tentativas=1;
+   exibirMensagemINICIAL();
+   document.getElementById('reiniciar').setAttribute('disabled',true)
     
 }
